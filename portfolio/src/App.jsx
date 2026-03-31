@@ -38,6 +38,7 @@ export default function App() {
   const [activeKey, setActiveKey] = useState("about");
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const ep = endpointMap[activeKey] ?? { method: "GET", path: "/about" };
   const { status, time, size } = getMeta(activeKey);
@@ -45,6 +46,7 @@ export default function App() {
   const handleSelect = (key) => {
     setActiveKey(key);
     setSent(false);
+    setSidebarOpen(false); // Close sidebar on mobile after selection
   };
 
   const handleDrill = (key) => {
@@ -71,19 +73,47 @@ export default function App() {
       <div className="w-full h-full flex flex-col border-zinc-800 shadow-2xl">
 
         {/* Top bar */}
-        <div className="flex items-center gap-3 px-4 py-2.5 bg-zinc-900 border-b border-zinc-800 shrink-0">
-          <div className="flex gap-1.5">
+        <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 bg-zinc-900 border-b border-zinc-800 shrink-0">
+          {/* Mobile menu button */}
+          <button 
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="md:hidden p-1.5 -ml-1 rounded-md hover:bg-zinc-800 transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {sidebarOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+          
+          <div className="hidden sm:flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-zinc-500/80" />
             <div className="w-3 h-3 rounded-full bg-zinc-500/80" />
             <div className="w-3 h-3 rounded-full bg-zinc-500/80" />
           </div>
-          <span className="text-brand font-mono text-sm font-medium ml-1">▶ Franxine / v1.0</span>
-          <span className="text-zinc-600 font-mono text-xs">· personal portfolio</span>
+          <span className="text-brand font-mono text-xs sm:text-sm font-medium sm:ml-1">▶ Franxine / v1.0</span>
+          <span className="text-zinc-600 font-mono text-[10px] sm:text-xs hidden xs:inline">· personal portfolio</span>
         </div>
 
         {/* Body */}
-        <div className="flex flex-1 overflow-hidden">
-          <Sidebar activeKey={activeKey} onSelect={handleSelect} />
+        <div className="flex flex-1 overflow-hidden relative">
+          {/* Mobile overlay */}
+          {sidebarOpen && (
+            <div 
+              className="md:hidden fixed inset-0 bg-black/50 z-20"
+              onClick={() => setSidebarOpen(false)}
+            />
+          )}
+          
+          <Sidebar 
+            activeKey={activeKey} 
+            onSelect={handleSelect} 
+            isOpen={sidebarOpen}
+            onClose={() => setSidebarOpen(false)}
+          />
 
           <div className="flex flex-col flex-1 min-w-0 bg-zinc-950">
             <RequestBar

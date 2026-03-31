@@ -22,9 +22,9 @@ export default function BlogDetailPanel({ blogId }) {
       </JLine>
       <JLine indent={1}><JKey k="body" />: <JComment>rendered below</JComment></JLine>
 
-      <div className="mx-5 my-2 bg-zinc-800 border border-zinc-700 rounded-lg p-4 font-sans">
+      <div className="mx-2 sm:mx-5 my-2 bg-zinc-800 border border-zinc-700 rounded-lg p-3 sm:p-4 font-sans">
         {b.body.split("\n\n").map((para, i) => (
-          <p key={i} className="text-sm text-zinc-300 leading-relaxed mb-3 last:mb-0">
+          <p key={i} className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-2 sm:mb-3 last:mb-0">
             {para}
           </p>
         ))}
