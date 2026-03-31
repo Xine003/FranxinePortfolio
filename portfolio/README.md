@@ -1,16 +1,45 @@
-# React + Vite
+# Postman Portfolio — Vite + React + Tailwind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Structure
 
-Currently, two official plugins are available:
+```
+src/
+├── data/
+│   └── portfolioData.js       ← All your content lives here. Edit this file only.
+├── components/
+│   ├── Sidebar.jsx             ← Left panel: collections + endpoint list
+│   ├── RequestBar.jsx          ← URL bar + Send button + status bar
+│   ├── ResponsePanel.jsx       ← Right panel: renders active endpoint response
+│   └── panels/
+│       ├── AboutPanel.jsx
+│       ├── SkillsPanel.jsx
+│       ├── ExperiencePanel.jsx
+│       ├── ProjectsPanel.jsx
+│       ├── ProjectDetailPanel.jsx
+│       ├── BlogsPanel.jsx
+│       ├── BlogDetailPanel.jsx
+│       ├── CvPanel.jsx
+│       ├── CertificatesPanel.jsx
+│       ├── SocialsPanel.jsx
+│       └── ContactPanel.jsx
+├── App.jsx                     ← Root layout + routing state
+├── main.jsx
+└── index.css                   ← Tailwind directives + custom CSS variables
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Setup
 
-## React Compiler
+```bash
+npm create vite@latest portfolio -- --template react
+cd portfolio
+npm install
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Then copy all files from this project into your `src/` folder.
 
-## Expanding the ESLint configuration
+## Customizing
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Open `src/data/portfolioData.js` and replace all placeholder content with your real info.
+You never need to touch the component files unless you want to change layout or add new endpoints.
