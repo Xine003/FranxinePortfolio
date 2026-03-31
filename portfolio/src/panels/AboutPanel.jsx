@@ -13,11 +13,11 @@ export default function AboutPanel() {
       <JLine indent={1}><JKey k="avatar" />: <JComment>rendered below</JComment></JLine>
 
       {/* Avatar card */}
-      <div className="mx-5 my-2 flex flex-col items-start gap-2.5">
+      <div className="mx-2 sm:mx-5 my-2 flex flex-col items-start gap-2.5">
         {owner.avatarUrl ? (
-          <img src={owner.avatarUrl} alt={owner.name} className="w-[250px] h-[250px] rounded-xl object-cover border border-zinc-700" />
+          <img src={owner.avatarUrl} alt={owner.name} className="w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] rounded-xl object-cover border border-zinc-700" />
         ) : (
-          <div className="w-[250px] h-[250px] rounded-xl bg-gradient-to-br from-brand to-amber-400 flex items-center justify-center text-white text-4xl font-semibold border border-zinc-700">
+          <div className="w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] rounded-xl bg-gradient-to-br from-brand to-amber-400 flex items-center justify-center text-white text-3xl sm:text-4xl font-semibold border border-zinc-700">
             {owner.initials}
           </div>
         )}

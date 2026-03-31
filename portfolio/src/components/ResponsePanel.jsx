@@ -13,8 +13,8 @@ import ContactPanel from "../panels/ContactPanel";
 export default function ResponsePanel({ activeKey, sent, onDrill }) {
   if (!sent) {
     return (
-      <div className="flex-1 flex items-start p-4">
-        <p className="font-mono text-xs text-zinc-600">
+      <div className="flex-1 flex items-start p-2 sm:p-4">
+        <p className="font-mono text-[10px] sm:text-xs text-zinc-600">
           waiting for request — click <span className="text-brand">Send</span> to load response
         </p>
       </div>
@@ -45,7 +45,7 @@ export default function ResponsePanel({ activeKey, sent, onDrill }) {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto p-4 font-mono text-xs leading-7">
+    <div className="flex-1 overflow-y-auto p-2 sm:p-4 font-mono text-[10px] sm:text-xs leading-6 sm:leading-7">
       {render()}
     </div>
   );

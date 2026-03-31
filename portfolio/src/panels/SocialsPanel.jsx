@@ -29,19 +29,19 @@ export default function SocialsPanel() {
             href={s.url}
             target="_blank"
             rel="noreferrer"
-            className="mx-5 my-2 flex items-center gap-3 bg-zinc-800 border border-zinc-700 hover:border-brand rounded-lg p-3 font-sans transition-colors duration-150"
+            className="mx-2 sm:mx-5 my-2 flex items-center gap-2 sm:gap-3 bg-zinc-800 border border-zinc-700 hover:border-brand rounded-lg p-2.5 sm:p-3 font-sans transition-colors duration-150"
           >
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 text-white"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center shrink-0 text-white"
               style={{ background: s.color }}
             >
               {Icon && <Icon />}
             </div>
-            <div>
-              <p className="text-sm font-medium text-zinc-100">{s.name}</p>
-              <p className="text-xs text-zinc-500 font-mono mt-0.5">{s.handle}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs sm:text-sm font-medium text-zinc-100 truncate">{s.name}</p>
+              <p className="text-[10px] sm:text-xs text-zinc-500 font-mono mt-0.5 truncate">{s.handle}</p>
             </div>
-            <span className="ml-auto text-zinc-600 text-sm">↗</span>
+            <span className="ml-auto text-zinc-600 text-xs sm:text-sm shrink-0">↗</span>
           </a>
         );
       })}

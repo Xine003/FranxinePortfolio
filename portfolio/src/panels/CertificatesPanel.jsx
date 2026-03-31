@@ -20,29 +20,29 @@ export default function CertificatesPanel() {
           rel="noopener noreferrer"
           className="block group"
         >
-          <div className="mx-5 my-2 bg-zinc-800 border border-zinc-700 border-l-2 border-transparent rounded-lg p-3 font-sans flex items-center gap-3 hover:bg-zinc-700/50 hover:border-orange-500 transition-all cursor-pointer">
+          <div className="mx-2 sm:mx-5 my-2 bg-zinc-800 border border-zinc-700 border-l-2 border-transparent rounded-lg p-2.5 sm:p-3 font-sans flex items-center gap-2 sm:gap-3 hover:bg-zinc-700/50 hover:border-orange-500 transition-all cursor-pointer">
             
             {/* Minimal Badge (Neutral by default) */}
-            <div className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-xs font-semibold text-zinc-400 group-hover:text-orange-400 group-hover:border-orange-500 transition-colors">
+            <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-[10px] sm:text-xs font-semibold text-zinc-400 group-hover:text-orange-400 group-hover:border-orange-500 transition-colors shrink-0">
               {cert.issuer?.[0] || "C"}
             </div>
 
             {/* Certificate Info */}
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-zinc-100 leading-snug">
+              <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-snug line-clamp-1">
                 {cert.name}
               </p>
-              <p className="text-xs text-zinc-500 mt-0.5">
+              <p className="text-[10px] sm:text-xs text-zinc-500 mt-0.5 line-clamp-1">
                 {cert.issuer}
               </p>
             </div>
 
             {/* Year + Hover Indicator */}
-            <div className="flex items-center gap-2 shrink-0">
-              <span className="font-mono text-xs text-zinc-400">
+            <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+              <span className="font-mono text-[10px] sm:text-xs text-zinc-400">
                 {cert.year}
               </span>
-              <span className="text-xs text-orange-400 opacity-0 group-hover:opacity-100 transition">
+              <span className="text-[10px] sm:text-xs text-orange-400 opacity-0 group-hover:opacity-100 transition hidden xs:inline">
                 → verify
               </span>
             </div>

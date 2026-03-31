@@ -15,7 +15,7 @@ export default function ProjectDetailPanel({ projectId }) {
       <JLine indent={1}><JKey k="preview" />: <JComment>rendered below</JComment></JLine>
 
       {/* Enlarged Hero Screenshot */}
-      <div className="mx-2 my-4 w-[calc(100%-16px)] aspect-video rounded-lg border border-zinc-700 bg-zinc-950 overflow-hidden flex items-center justify-center">
+      <div className="mx-1 sm:mx-2 my-2 sm:my-4 w-[calc(100%-8px)] sm:w-[calc(100%-16px)] aspect-video rounded-lg border border-zinc-700 bg-zinc-950 overflow-hidden flex items-center justify-center">
         {p.screenshotUrl ? (
           <img 
             src={p.screenshotUrl} 
@@ -23,7 +23,7 @@ export default function ProjectDetailPanel({ projectId }) {
             className="w-full h-full object-contain" 
           />
         ) : (
-          <span className="text-xs font-mono text-zinc-600">[ full project screenshot ]</span>
+          <span className="text-[10px] sm:text-xs font-mono text-zinc-600">[ full project screenshot ]</span>
         )}
       </div>
 
