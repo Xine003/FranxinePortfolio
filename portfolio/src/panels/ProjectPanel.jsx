@@ -14,14 +14,19 @@ export default function ProjectsPanel({ onDrill }) {
           onClick={() => onDrill(`project-${p.id}`)}
           className="clickable-card mx-5 my-2"
         >
-          {/* Screenshot placeholder / real image */}
-          {p.screenshotUrl ? (
-            <img src={p.screenshotUrl} alt={p.name} className="w-full h-24 object-cover rounded-md mb-2" />
-          ) : (
-            <div className="w-full h-20 rounded-md mb-2 bg-zinc-900 border border-zinc-700 flex items-center justify-center">
+          {/* Screenshot with aspect-video and object-contain */}
+          <div className="w-full aspect-video max-h-48 rounded-md mb-3 bg-zinc-950 border border-zinc-700 overflow-hidden flex items-center justify-center">
+            {p.thumbnailUrl ? (
+              <img 
+                src={p.thumbnailUrl} 
+                alt={p.name} 
+                className="w-full h-full object-contain" 
+              />
+            ) : (
               <span className="text-xs font-mono text-zinc-600">[ screenshot ]</span>
-            </div>
-          )}
+            )}
+          </div>
+
           <div className="flex items-start justify-between mb-1">
             <p className="text-sm font-medium text-zinc-100">{p.name}</p>
             <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono ml-2 shrink-0 ${p.status === "production" ? "bg-emerald-950 text-emerald-400 border border-emerald-800" : "bg-zinc-900 text-zinc-500 border border-zinc-700"}`}>

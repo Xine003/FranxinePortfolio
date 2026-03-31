@@ -14,14 +14,18 @@ export default function ProjectDetailPanel({ projectId }) {
       <JLine indent={1}><JKey k="year" />: <JNum v={p.year} />,</JLine>
       <JLine indent={1}><JKey k="preview" />: <JComment>rendered below</JComment></JLine>
 
-      {/* Screenshot */}
-      {p.screenshotUrl ? (
-        <img src={p.screenshotUrl} alt={p.name} className="mx-5 my-2 w-[calc(100%-40px)] h-36 object-cover rounded-lg border border-zinc-700" />
-      ) : (
-        <div className="mx-5 my-2 h-32 rounded-lg border border-zinc-700 bg-zinc-900 flex items-center justify-center">
+      {/* Enlarged Hero Screenshot */}
+      <div className="mx-2 my-4 w-[calc(100%-16px)] aspect-video rounded-lg border border-zinc-700 bg-zinc-950 overflow-hidden flex items-center justify-center">
+        {p.screenshotUrl ? (
+          <img 
+            src={p.screenshotUrl} 
+            alt={p.name} 
+            className="w-full h-full object-contain" 
+          />
+        ) : (
           <span className="text-xs font-mono text-zinc-600">[ full project screenshot ]</span>
-        </div>
-      )}
+        )}
+      </div>
 
       <JLine indent={1}><JKey k="description" />: <JStr v={p.description} />,</JLine>
       <JLine indent={1}><JKey k="stack" />: [
