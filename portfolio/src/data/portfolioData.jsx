@@ -147,6 +147,18 @@ export const certificates = [
         issuer: "IBM",
         year: 2024,
         url: "https://www.credly.com/badges/f2e38e7e-e628-4875-a0e7-47bbe05e767e/public_url"
+    },
+    {
+        name: "Claude 101",
+        issuer: "Anthropic",
+        year: 2026,
+        url: "http://verify.skilljar.com/c/ks3jzysgxp3u"
+    },
+    {
+        name: "Building with Claude API",
+        issuer: "Anthropic",
+        year: 2026,
+        url: "http://verify.skilljar.com/c/cqvmxpckbeze"
     }
 ];
 
