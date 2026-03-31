@@ -3,6 +3,12 @@
 import cvFilePath from "../files/Orias_Franxine_CV.pdf"
 import resqwavePath from "../files/resqwave.png"
 import resqwaveThumbnailPath from "../files/resqwaveThumbnail.jpg"
+import jimirenePath from "../files/jimirene.png"
+import jimireneThumbnailPath from "../files/jimireneThumbnail.jpg"
+import navigazePath from "../files/navigaze.png"
+import navigazeThumbnailPath from "../files/navigazeThumbnail.jpg"
+import ctfPath from "../files/ctf.png"
+import ctfThumbnailPath from "../files/ctfThumbnail.jpg"
 
 export const owner = {
     name: "Franxine Caraig Orias",
@@ -63,8 +69,8 @@ export const projects = [
         stack: ["Java / Spring Boot", "MySQL", "React.JS"],
         repoUrl: "https://github.com/Xine003/clinic-management-system",
         liveUrl: null,
-        screenshotUrl: null,
-        thumbnailUrl: null,
+        screenshotUrl: jimirenePath,
+        thumbnailUrl: jimireneThumbnailPath,
         year: 2024
     },
     {
@@ -72,11 +78,11 @@ export const projects = [
         name: "NaviGaze Mobile Indoor Navigation",
         status: "archived",
         description: "A mobile application software that uses an indoor positioning system that helps users find their way into specific rooms inside the premises of the University of Caloocan City.",
-        stack: ["C#", "Unity", "Firebase"],
+        stack: ["C#", "Unity", "Firebase", "AR"],
         repoUrl: "https://github.com/Xine003/NaviGaze-Indoor-Navigation",
         liveUrl: null,
-        thumbnailUrl: null,
-        screenshotUrl: null,
+        thumbnailUrl: navigazeThumbnailPath,
+        screenshotUrl: navigazePath,
         year: 2024
     },
     {
@@ -87,8 +93,8 @@ export const projects = [
         stack: ["Ruby"],
         repoUrl: "https://github.com/Xine003/ctf",
         liveUrl: "https://xine003.github.io/ctf/",
-        screenshotUrl: null,
-        thumbnailUrl: null,
+        screenshotUrl: ctfPath,
+        thumbnailUrl: ctfThumbnailPath,
         year: 2025
     },
 ];
