@@ -10,20 +10,30 @@ export default function BlogsPanel({ onDrill }) {
 
       {blogs.map((b) => (
         <div
-          key={b.id}
-          onClick={() => onDrill(`blog-${b.id}`)}
-          className="clickable-card mx-5 my-2"
-        >
-          <p className="text-sm font-medium text-zinc-100 mb-1">{b.title}</p>
-          <p className="text-xs text-zinc-500 mb-2 leading-relaxed">{b.excerpt}</p>
+        key={b.id}
+        onClick={() => onDrill(`blog-${b.id}`)}
+        className="clickable-card mx-5 my-2 flex gap-4 p-3" // Added flex and padding
+      >
+        {/* Small Square Thumbnail */}
+        <div className="w-20 h-20 shrink-0 rounded bg-zinc-950 border border-zinc-800 overflow-hidden">
+          {b.thumbnailUrl ? (
+            <img src={b.thumbnailUrl} className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-[10px] text-zinc-700">IMG</div>
+          )}
+        </div>
+
+        <div className="flex-1 min-w-0"> {/* ensures text doesn't overflow */}
+          <p className="text-sm font-medium text-zinc-100 mb-1 truncate">{b.title}</p>
+          <p className="text-xs text-zinc-500 mb-2 line-clamp-2 leading-relaxed">
+            {b.excerpt}
+          </p>
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-mono text-[10px] text-zinc-600">{b.publishedAt}</span>
             {b.tags.map((t) => <span key={t} className="pill">{t}</span>)}
-            <span className="ml-auto text-[10px] font-mono text-brand shrink-0">
-              GET /blogs/{b.id} →
-            </span>
           </div>
         </div>
+      </div>
       ))}
 
       <JLine indent={1}>]</JLine>
