@@ -1,5 +1,8 @@
 // Portfolio Data
 // Edit this file to update all content on the portfolio
+import cvFilePath from "../files/Orias_Franxine_CV.pdf"
+import resqwavePath from "../files/resqwave.png"
+import resqwaveThumbnailPath from "../files/resqwaveThumbnail.jpg"
 
 export const owner = {
     name: "Franxine Caraig Orias",
@@ -9,7 +12,7 @@ export const owner = {
     bio: "Build and Break",
     openToWork: true,
     avatarUrl: null,
-    resumeUrl: "/files/cv.pdf"
+    resumeUrl: "/files/Orias_Franxine_CV.pdf"
 };
 
 export const skills = [
@@ -48,7 +51,8 @@ export const projects = [
         stack: ["Node.JS", "PostgreSQL", "TypeORM", "Redis", "Docker", "React.JS"],
         repoUrl: "https://github.com/Xine003/ResQWave",
         liveUrl: "https://resqwave.vercel.app/",
-        screenshotUrl: null, // set to "/screenshots/resqwave.png"
+        screenshotUrl: resqwavePath, 
+        thumbnailUrl: resqwaveThumbnailPath,
         year: 2025
     },
     {
@@ -60,6 +64,7 @@ export const projects = [
         repoUrl: "https://github.com/Xine003/clinic-management-system",
         liveUrl: null,
         screenshotUrl: null,
+        thumbnailUrl: null,
         year: 2024
     },
     {
@@ -70,6 +75,7 @@ export const projects = [
         stack: ["C#", "Unity", "Firebase"],
         repoUrl: "https://github.com/Xine003/NaviGaze-Indoor-Navigation",
         liveUrl: null,
+        thumbnailUrl: null,
         screenshotUrl: null,
         year: 2024
     },
@@ -82,6 +88,7 @@ export const projects = [
         repoUrl: "https://github.com/Xine003/ctf",
         liveUrl: "https://xine003.github.io/ctf/",
         screenshotUrl: null,
+        thumbnailUrl: null,
         year: 2025
     },
 ];
@@ -98,10 +105,10 @@ export const blogs = [
 ];
 
 export const cv = {
-    filename: "Franxine Orias - CV.pdf",
+    filename: "Orias_Franxine_CV.pdf",
     updatedAt: "2026-03-26",
     sizeKb: 112,
-    downloadUrl: "/files/Orias_Franxine_CV.pdf"
+    downloadUrl: cvFilePath
 };
 
 export const certificates = [
