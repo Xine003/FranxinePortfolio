@@ -3,7 +3,7 @@ import { JLine, JKey, JComment } from "../utils/JsonHelpers";
 
 export default function SkillsPanel() {
   return (
-    <div>
+    <div className="py-2">
       <JLine>{"{"}</JLine>
       {skills.map((group, i) => {
         const key = group.category.toLowerCase().replace(/\s+/g, "_");
@@ -11,17 +11,22 @@ export default function SkillsPanel() {
         return (
           <div key={key} className="group">
             <JLine indent={1}>
-              <JKey k={key} />: <JComment> {group.items.length} items rendered below</JComment>
+              <JKey k={key} />: <JComment> {group.items.length} items</JComment>
             </JLine>
-            <div className="mx-8 my-2 bg-zinc-900/50 border-l-2 border-brand/30 rounded-r-lg p-4 transition-all group-hover:border-brand">
-              <p className="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">{group.category}</p>
-              <div className="flex flex-wrap gap-1.5">
+            <div className="mx-5 my-3 bg-zinc-900/40 border border-zinc-800 rounded-lg px-4 py-3 font-sans transition-all hover:border-orange-500/50">
+              <p className="text-[10px] uppercase tracking-[0.15em] text-zinc-500 mb-3">{group.category}</p>
+              <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <span key={item} className="pill">{item}</span>
+                  <span 
+                    key={item} 
+                    className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-zinc-800/80 border border-zinc-700 text-zinc-400 transition-all hover:border-orange-500/50 hover:text-orange-500 cursor-default"
+                  >
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
-            {!isLast && <JLine indent={1}>{isLast ? "]" : "],"}</JLine>}
+            {!isLast && <div className="h-2" />} {/* Vertical breathing room between categories */}
           </div>
         );
       })}
