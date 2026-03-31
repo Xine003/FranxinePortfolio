@@ -9,6 +9,7 @@ import navigazePath from "../files/navigaze.png"
 import navigazeThumbnailPath from "../files/navigazeThumbnail.jpg"
 import ctfPath from "../files/ctf.png"
 import ctfThumbnailPath from "../files/ctfThumbnail.jpg"
+import profile from "../files/profileSize.jpg"
 
 export const owner = {
     name: "Franxine Caraig Orias",
@@ -17,7 +18,7 @@ export const owner = {
     location: "Caloocan City, PH",
     bio: "Build and Break",
     openToWork: true,
-    avatarUrl: null,
+    avatarUrl: profile,
     resumeUrl: "/files/Orias_Franxine_CV.pdf"
 };
 
@@ -106,7 +107,8 @@ export const blogs = [
         publishedAt: "2025-11-03",
         tags: ["Cybersecurity", "CTF"],
         excerpt: "7 Hours of 'Access Denied' (Until it Finally Clicked)",
-        body: `Imagine a 7-hours digital marathon where you brain is the only thing running. Hack4Gov isn't just a test of what you know; It is a test of perseverance. There were moments where I hit a wall for two hours straight, trying one thing after another, failing and then starting over. It's that constant cycle of trial and error that really tests your grit. \n\nBut that's exactly where the fun is. There is no feeling quite like the rush you get when a solution finally clicks after hours of being stuck. Because this challenge only happens once a year, every minute felt incredibly high-stakes and exciting. Even when my brain felt fried by hours, the energy of the room kept me going. It was exhausting honestly, but easily one of the most rewarding experience I ever had.`
+        body: `Imagine a 7-hours digital marathon where you brain is the only thing running. Hack4Gov isn't just a test of what you know; It is a test of perseverance. There were moments where I hit a wall for two hours straight, trying one thing after another, failing and then starting over. It's that constant cycle of trial and error that really tests your grit. \n\nBut that's exactly where the fun is. There is no feeling quite like the rush you get when a solution finally clicks after hours of being stuck. Because this challenge only happens once a year, every minute felt incredibly high-stakes and exciting. Even when my brain felt fried by hours, the energy of the room kept me going. It was exhausting honestly, but easily one of the most rewarding experience I ever had.`,
+        thumbnailUrl: ctfThumbnailPath
     }
 ];
 
