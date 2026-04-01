@@ -9,7 +9,7 @@ import navigazePath from "../files/navigaze.png"
 import navigazeThumbnailPath from "../files/navigazeThumbnail.jpg"
 import ctfPath from "../files/ctf.png"
 import ctfThumbnailPath from "../files/ctfThumbnail.jpg"
-import profile from "../files/profileSize.jpg"
+import profile from "../files/profileSize.webp"
 
 export const owner = {
     name: "Franxine Caraig Orias",
