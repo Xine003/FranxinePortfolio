@@ -32,7 +32,7 @@ export const experience = [
     {
         company: "Maximum Solution Corporation",
         role: "IT Support Intern",
-        period: "June - July 2026",
+        period: "June - July 2025",
         highlights: [
             "Managed hardware infrastructure deployment and system upgrades for multiple departments, ensuring high availability and minimizing operational downtime.",
             "Administered enterprise-level email systems and handled complex technical troubleshooting to ensure consistent internal communication and system uptime. "
@@ -41,7 +41,7 @@ export const experience = [
     {
         company: "Dr. Jose N. Rodriguez Memorial Hospital and Sanitarium",
         role: "Network Intern",
-        period: "July - September 2026",
+        period: "July - September 2025",
         highlights: [
             "Configured and secured local network infrastructure for 40+ medical staff, implementing IP addressing schemes and firewall rules to protect sensitive clinical data. ",
             "Delivered Tier 1-2 technical support for clinical software and hardware environments, focusing on rapid diagnostic resolution to maintain critical hospital operations. "
@@ -133,7 +133,7 @@ export const certificates = [
         url: "https://www.credly.com/badges/cfa95757-4eed-424a-96a5-d97ab0e308e4/public_url"
     },
     {
-        name: "Networking Devices and Initial Configurition",
+        name: "Networking Devices and Initial Configuration",
         issuer: "Cisco",
         year: 2023,
         url: "https://www.credly.com/badges/71356472-9ee8-441f-84f2-bfaab8c57a92/public_url"
