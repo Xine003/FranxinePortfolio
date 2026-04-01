@@ -12,10 +12,10 @@ export default function BlogsPanel({ onDrill }) {
         <div
         key={b.id}
         onClick={() => onDrill(`blog-${b.id}`)}
-        className="clickable-card mx-5 my-2 flex gap-4 p-3" // Added flex and padding
+        className="clickable-card mx-2 sm:mx-5 my-2 flex gap-2 sm:gap-4 p-2 sm:p-3"
       >
         {/* Small Square Thumbnail */}
-        <div className="w-20 h-20 shrink-0 rounded bg-zinc-950 border border-zinc-800 overflow-hidden">
+        <div className="w-14 h-14 sm:w-20 sm:h-20 shrink-0 rounded bg-zinc-950 border border-zinc-800 overflow-hidden">
           {b.thumbnailUrl ? (
             <img src={b.thumbnailUrl} className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
           ) : (
@@ -23,14 +23,14 @@ export default function BlogsPanel({ onDrill }) {
           )}
         </div>
 
-        <div className="flex-1 min-w-0"> {/* ensures text doesn't overflow */}
-          <p className="text-sm font-medium text-zinc-100 mb-1 truncate">{b.title}</p>
-          <p className="text-xs text-zinc-500 mb-2 line-clamp-2 leading-relaxed">
+        <div className="flex-1 min-w-0">
+          <p className="text-xs sm:text-sm font-medium text-zinc-100 mb-0.5 sm:mb-1 truncate">{b.title}</p>
+          <p className="text-[10px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 line-clamp-2 leading-relaxed">
             {b.excerpt}
           </p>
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-mono text-[10px] text-zinc-600">{b.publishedAt}</span>
-            {b.tags.map((t) => <span key={t} className="pill">{t}</span>)}
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+            <span className="font-mono text-[9px] sm:text-[10px] text-zinc-600">{b.publishedAt}</span>
+            {b.tags.map((t) => <span key={t} className="pill text-[9px] sm:text-xs">{t}</span>)}
           </div>
         </div>
       </div>

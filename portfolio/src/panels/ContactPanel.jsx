@@ -69,10 +69,10 @@ export default function ContactPanel() {
       <JLine>{"{"}</JLine>
       <JLine indent={1}><JKey k="payload" />: <JComment>rendered below</JComment></JLine>
 
-      <div className="mx-5 my-2 bg-zinc-800 border border-zinc-700 rounded-lg p-4 font-sans">
+      <div className="mx-2 sm:mx-5 my-2 bg-zinc-800 border border-zinc-700 rounded-lg p-3 sm:p-4 font-sans">
         {FIELDS.map(({ key, type, placeholder, label }) => (
-          <div key={key} className="mb-3">
-            <label className="block text-xs font-mono text-zinc-500 mb-1">{label}</label>
+          <div key={key} className="mb-2 sm:mb-3">
+            <label className="block text-[10px] sm:text-xs font-mono text-zinc-500 mb-1">{label}</label>
 
             {type === "textarea" ? (
               <textarea
@@ -81,7 +81,7 @@ export default function ContactPanel() {
                 onChange={(e) => setForm({ ...form, [key]: e.target.value })}
                 placeholder={placeholder}
                 disabled={isSent || isSending}
-                className="w-full bg-zinc-900 border border-zinc-700 focus:border-brand rounded px-3 py-2 text-sm text-zinc-200 outline-none transition-colors placeholder:text-zinc-600 resize-none disabled:opacity-50"
+                className="w-full bg-zinc-900 border border-zinc-700 focus:border-brand rounded px-2.5 sm:px-3 py-2 text-xs sm:text-sm text-zinc-200 outline-none transition-colors placeholder:text-zinc-600 resize-none disabled:opacity-50"
               />
             ) : (
               <input
@@ -90,7 +90,7 @@ export default function ContactPanel() {
                 onChange={(e) => setForm({ ...form, [key]: e.target.value })}
                 placeholder={placeholder}
                 disabled={isSent || isSending}
-                className="w-full bg-zinc-900 border border-zinc-700 focus:border-brand rounded px-3 py-2 text-sm text-zinc-200 outline-none transition-colors placeholder:text-zinc-600 disabled:opacity-50"
+                className="w-full bg-zinc-900 border border-zinc-700 focus:border-brand rounded px-2.5 sm:px-3 py-2 text-xs sm:text-sm text-zinc-200 outline-none transition-colors placeholder:text-zinc-600 disabled:opacity-50"
               />
             )}
           </div>
