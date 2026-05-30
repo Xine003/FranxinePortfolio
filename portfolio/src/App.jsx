@@ -3,8 +3,8 @@ import Sidebar from "./components/Sidebar";
 import RequestBar from "./components/RequestBar";
 import ResponsePanel from "./components/ResponsePanel";
 import { sidebarGroups } from "./data/portfolioData";
+import { trackEvent } from "./utils/analytics";
 
-// Build a flat map of key → endpoint metadata for quick lookup
 const endpointMap = {};
 sidebarGroups.forEach((g) =>
   g.endpoints.forEach((ep) => {
@@ -14,7 +14,6 @@ sidebarGroups.forEach((g) =>
 
 const BASE_URL = "https://FranxinePortfolio.dev/api";
 
-// Simulated response metadata per endpoint
 const meta = {
   about:        { status: "200 OK", time: "142ms", size: "1.2 KB" },
   skills:       { status: "200 OK", time: "61ms",  size: "0.7 KB" },
@@ -46,7 +45,9 @@ export default function App() {
   const handleSelect = (key) => {
     setActiveKey(key);
     setSent(false);
-    setSidebarOpen(false); // Close sidebar on mobile after selection
+    setSidebarOpen(false);
+
+    trackEvent("section_view", { section_name: key });
   };
 
   const handleDrill = (key) => {
@@ -56,6 +57,12 @@ export default function App() {
       setSent(true);
       setLoading(false);
     }, 380);
+
+    if (key.startsWith("project-")) {
+      trackEvent("project_drill", { project_id: key.replace("project-", "") });
+    } else if (key.startsWith("blog-")) {
+      trackEvent("blog_drill", { blog_id: key.replace("blog-", "") });
+    }
   };
 
   const handleSend = () => {
@@ -66,16 +73,16 @@ export default function App() {
       setSent(true);
       setLoading(false);
     }, 420);
+
+    trackEvent("send_click", { section_name: activeKey });
   };
 
   return (
     <div className="h-screen w-screen bg-zinc-950 flex overflow-hidden">
       <div className="w-full h-full flex flex-col border-zinc-800 shadow-2xl">
 
-        {/* Top bar */}
         <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 bg-zinc-900 border-b border-zinc-800 shrink-0">
-          {/* Mobile menu button */}
-          <button 
+          <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="md:hidden p-1.5 -ml-1 rounded-md hover:bg-zinc-800 transition-colors"
             aria-label="Toggle menu"
@@ -88,7 +95,7 @@ export default function App() {
               )}
             </svg>
           </button>
-          
+
           <div className="hidden sm:flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-zinc-500/80" />
             <div className="w-3 h-3 rounded-full bg-zinc-500/80" />
@@ -98,19 +105,17 @@ export default function App() {
           <span className="text-zinc-600 font-mono text-[10px] sm:text-xs hidden xs:inline">· personal portfolio</span>
         </div>
 
-        {/* Body */}
         <div className="flex flex-1 overflow-hidden relative">
-          {/* Mobile overlay */}
           {sidebarOpen && (
-            <div 
+            <div
               className="md:hidden fixed inset-0 bg-black/50 z-20"
               onClick={() => setSidebarOpen(false)}
             />
           )}
-          
-          <Sidebar 
-            activeKey={activeKey} 
-            onSelect={handleSelect} 
+
+          <Sidebar
+            activeKey={activeKey}
+            onSelect={handleSelect}
             isOpen={sidebarOpen}
             onClose={() => setSidebarOpen(false)}
           />

@@ -1,7 +1,16 @@
 import { cv } from "../data/portfolioData";
 import { JLine, JKey, JComment } from "../utils/JsonHelpers";
+import { trackEvent } from "../utils/analytics";
 
 export default function CvPanel() {
+  const handleCvDownload = () => {
+    trackEvent("file_download", {
+      file_name:      cv.filename,
+      file_extension: "pdf",
+      link_text:      "Download CV",
+    });
+  };
+
   return (
     <div>
       <JLine>{"{"}</JLine>
@@ -10,7 +19,7 @@ export default function CvPanel() {
       </JLine>
 
       <div className="mx-2 sm:mx-5 my-2 bg-zinc-800 border border-zinc-700 rounded-lg p-2.5 sm:p-3 font-sans flex items-center gap-2 sm:gap-4">
-        
+
         {/* Improved PDF Icon */}
         <div className="w-10 h-12 sm:w-12 sm:h-14 bg-zinc-900 border border-orange-500/30 rounded-md flex flex-col items-center justify-center shadow-sm relative shrink-0">
           <span className="text-[9px] sm:text-[10px] font-semibold text-orange-400 tracking-wide">
@@ -37,10 +46,11 @@ export default function CvPanel() {
           </p>
         </div>
 
-        {/* Consistent Brand Button */}
+        {/* Download button */}
         <a
           href={cv.downloadUrl}
           download
+          onClick={handleCvDownload}
           className="px-2 sm:px-3 py-1 sm:py-1.5 bg-orange-600 hover:bg-orange-500 active:bg-orange-700 text-white text-[10px] sm:text-xs rounded transition-colors shrink-0"
         >
           ↓ <span className="hidden xs:inline">Download</span><span className="xs:hidden">DL</span>

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { JLine, JKey, JComment } from "../utils/JsonHelpers";
+import { trackEvent } from "../utils/analytics";
 
-const FORMSPREE_ID = "mrbqkejb"; 
+const FORMSPREE_ID = "mrbqkejb";
 const FIELDS = [
-  { key: "name",    type: "input",    placeholder: "Your name",       label: "name"    },
-  { key: "email",   type: "input",    placeholder: "your@email.com",  label: "email"   },
+  { key: "name",    type: "input",    placeholder: "Your name",         label: "name"    },
+  { key: "email",   type: "input",    placeholder: "your@email.com",    label: "email"   },
   { key: "subject", type: "input",    placeholder: "What's this about?", label: "subject" },
-  { key: "message", type: "textarea", placeholder: "Say something...", label: "message" },
-];
+  { key: "message", type: "textarea", placeholder: "Say something...",  label: "message" },
+];S
 
 export default function ContactPanel() {
   const [form, setForm]     = useState({ name: "", email: "", subject: "", message: "" });
@@ -35,6 +36,7 @@ export default function ContactPanel() {
 
       if (res.ok) {
         setStatus("sent");
+        trackEvent("generate_lead", { form_name: "contact" });
       } else {
         setStatus("error");
       }
@@ -53,9 +55,9 @@ export default function ContactPanel() {
       <JLine>
         <span
           className={`font-mono text-xs transition-colors ${
-            isSent  ? "text-emerald-400" :
-            isError ? "text-red-400"     :
-            isSending ? "text-amber-400" :
+            isSent    ? "text-emerald-400" :
+            isError   ? "text-red-400"     :
+            isSending ? "text-amber-400"   :
             "text-zinc-500"
           }`}
         >

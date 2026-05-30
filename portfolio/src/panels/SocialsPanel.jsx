@@ -1,5 +1,6 @@
 import { socials } from "../data/portfolioData";
 import { JLine, JKey, JComment } from "../utils/JsonHelpers";
+import { trackEvent } from "../utils/analytics";
 
 const GithubIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -16,6 +17,10 @@ const LinkedinIcon = () => (
 const icons = { github: GithubIcon, linkedin: LinkedinIcon };
 
 export default function SocialsPanel() {
+  const handleSocialClick = (platform, url) => {
+    trackEvent("social_click", { platform, url });
+  };
+
   return (
     <div>
       <JLine>{"{"}</JLine>
@@ -29,6 +34,7 @@ export default function SocialsPanel() {
             href={s.url}
             target="_blank"
             rel="noreferrer"
+            onClick={() => handleSocialClick(s.name, s.url)}
             className="mx-2 sm:mx-5 my-2 flex items-center gap-2 sm:gap-3 bg-zinc-800 border border-zinc-700 hover:border-brand rounded-lg p-2.5 sm:p-3 font-sans transition-colors duration-150"
           >
             <div
