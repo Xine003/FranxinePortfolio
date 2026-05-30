@@ -8,7 +8,7 @@ const FIELDS = [
   { key: "email",   type: "input",    placeholder: "your@email.com",    label: "email"   },
   { key: "subject", type: "input",    placeholder: "What's this about?", label: "subject" },
   { key: "message", type: "textarea", placeholder: "Say something...",  label: "message" },
-];S
+];
 
 export default function ContactPanel() {
   const [form, setForm]     = useState({ name: "", email: "", subject: "", message: "" });
